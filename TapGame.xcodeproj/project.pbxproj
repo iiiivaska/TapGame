@@ -24,6 +24,8 @@
 		A82F00322847BC0100F44CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A82F00352847BC0100F44CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A82F00372847BC0100F44CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A82F003D2847C1CE00F44CE6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A82F00402847C59F00F44CE6 /* gameViewBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameViewBorder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		A82F00282847BC0000F44CE6 /* TapGame */ = {
 			isa = PBXGroup;
 			children = (
+				A82F003E2847C38900F44CE6 /* MDFiles */,
 				A82F00292847BC0000F44CE6 /* AppDelegate.swift */,
 				A82F002B2847BC0000F44CE6 /* SceneDelegate.swift */,
 				A82F002D2847BC0000F44CE6 /* ViewController.swift */,
@@ -63,8 +66,17 @@
 				A82F00322847BC0100F44CE6 /* Assets.xcassets */,
 				A82F00342847BC0100F44CE6 /* LaunchScreen.storyboard */,
 				A82F00372847BC0100F44CE6 /* Info.plist */,
+				A82F003D2847C1CE00F44CE6 /* README.md */,
 			);
 			path = TapGame;
+			sourceTree = "<group>";
+		};
+		A82F003E2847C38900F44CE6 /* MDFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A82F00402847C59F00F44CE6 /* gameViewBorder.png */,
+			);
+			path = MDFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
