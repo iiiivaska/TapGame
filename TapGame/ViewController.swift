@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
+    
+    private var isGameActive = false
+    private var gameTimeLeft: TimeInterval = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +26,37 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startButtonTapped(_ sender: UIButton) {
-        
+        if isGameActive {
+            stopGame()
+        } else {
+            startGame()
+        }
     }
     
     @IBAction func stepperChanged(_ sender: UIStepper) {
-        timeLabel.text = "Время: \(sender.value) сек"
+        updateUI()
+    }
+    
+    private func startGame() {
+        gameTimeLeft = stepper.value
+        isGameActive = true
+        updateUI()
+    }
+    
+    private func stopGame() {
+        isGameActive = false
+        updateUI()
+    }
+    
+    private func updateUI() {
+        stepper.isEnabled = !isGameActive
+        if isGameActive {
+            startButton.setTitle("Остановить", for: .normal)
+            timeLabel.text = "Осталось \(Int(gameTimeLeft)) сек"
+        } else {
+            startButton.setTitle("Начать", for: .normal)
+            timeLabel.text = "Время \(Int(stepper.value)) сек"
+        }
     }
 }
 
