@@ -2,12 +2,13 @@
 [«Разработка под iOS. Начинаем»](https://www.youtube.com/watch?v=RR5o5ki0888&list=PLQC2_0cDcSKA0zy20X9c5rQKNg3rkSK7c&index=25)
 
 # Оглавление
-# <a href="#View">View guide</a>
-## [UIView](#Uiview)
-## [UIButton](#Uibutton)
-## [UIStepper](#Uistepper)
-# <a href="#Core">Core Guide</a>
-## [Timer](#Timer)
+1. [View guide](#View)
+	+ [UIView](#Uiview)
+	+ [UIButton](#Uibutton)
+	+ [UIStepper](#Uistepper)
+2. [Core Guide](#Core)
+	+ [Timer](#Timer)
+
 # <a name="View"></a> View Guide
 
 <a name="Uiview"></a>
@@ -51,7 +52,10 @@ private var objectMovingTime: TimeInterval = 2
 ### Timer
 Создание таймера
 ```swift
-gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeTick), userInfo: nil, repeats: true)
+gameTimer = Timer.scheduledTimer(timeInterval: 1,
+										target: self, 
+										selector: #selector(timeTick), 
+										userInfo: nil, repeats: true)
 ```
 Вызывает функцию timeTick каждую секунду до принудительной остановки
 ```
