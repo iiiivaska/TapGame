@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     
     private var isGameActive = false
     private var gameTimeLeft: TimeInterval = 0
+    private var gameTimer: Timer?
+    private var objectMovingTime: TimeInterval = 2
+    private var objectTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,11 @@ class ViewController: UIViewController {
     }
     
     private func startGame() {
+        gameTimer?.invalidate()
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeTick), userInfo: nil, repeats: true)
+        objectTimer?.invalidate()
+        objectTimer = Timer.scheduledTimer(timeInterval: objectMovingTime, target: self, selector: #selector(moveGameObject), userInfo: nil, repeats: true)
+        objectTimer?.fire()
         gameTimeLeft = stepper.value
         isGameActive = true
         updateUI()
@@ -46,6 +54,8 @@ class ViewController: UIViewController {
     private func stopGame() {
         isGameActive = false
         updateUI()
+        gameTimer?.invalidate()
+        objectTimer?.invalidate()
     }
     
     private func updateUI() {
@@ -57,6 +67,19 @@ class ViewController: UIViewController {
             startButton.setTitle("Начать", for: .normal)
             timeLabel.text = "Время \(Int(stepper.value)) сек"
         }
+    }
+    
+    @objc private func timeTick() {
+        if gameTimeLeft <= 0 {
+            stopGame()
+        } else {
+            gameTimeLeft -= 1
+            updateUI()
+        }
+    }
+    
+    @objc private func moveGameObject() {
+        print("moving")
     }
 }
 
