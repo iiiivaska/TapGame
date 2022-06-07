@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var shapeX: NSLayoutConstraint!
+    @IBOutlet weak var shapeY: NSLayoutConstraint!
+    @IBOutlet weak var gameObject: UIImageView!
     
     private var isGameActive = false
     private var gameTimeLeft: TimeInterval = 0
@@ -79,7 +82,10 @@ class ViewController: UIViewController {
     }
     
     @objc private func moveGameObject() {
-        print("moving")
+        let maxX = gameView.bounds.maxX - gameObject.frame.width
+        let maxY = gameView.bounds.maxY - gameObject.frame.height
+        shapeX.constant = CGFloat(arc4random_uniform(UInt32(maxX)))
+        shapeY.constant = CGFloat(arc4random_uniform(UInt32(maxY)))
     }
 }
 

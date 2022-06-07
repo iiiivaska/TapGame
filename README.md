@@ -6,6 +6,7 @@
 	+ [UIView](#Uiview)
 	+ [UIButton](#Uibutton)
 	+ [UIStepper](#Uistepper)
+	+ [NSLayoutConstraint (Перемещение объекта)](#NSLayoutConstraint)
 2. [Core Guide](#Core)
 	+ [Timer](#Timer)
 
@@ -13,7 +14,7 @@
 
 <a name="Uiview"></a>
 ## UIView
-### Установить границы UIView
+### Установить рамку UIView
 ```swift 
 gameView.layer.borderWidth = 1 
 gameView.layer.borderColor = UIColor.gray.cgColor 
@@ -37,10 +38,31 @@ startButton.setTitle("Text", for: .normal)
 stepper.isEnabled = false // true
 ```
 
-<a name="Timer"></a>
+<a name="NSLayoutConstraint"></a>
+## NSLayoutConstraint
+### IBOutlet для constraints
+```swift
+@IBOutlet weak var shapeX: NSLayoutConstraint!
+@IBOutlet weak var shapeY: NSLayoutConstraint!
+```
 
+### Frame vs Bounds
+Frame - Внешние границы и расположение View <br>
+Bounds - Внутренние границы и расположение View
+<p align="center">
+  <img width=500 src="MDFiles/FrameVsBounds.png">
+</p>
+
+### Перемещение объекта
+```swift
+let maxX = gameView.bounds.maxX - gameObject.frame.width
+let maxY = gameView.bounds.maxY - gameObject.frame.height
+shapeX.constant = CGFloat(arc4random_uniform(UInt32(maxX)))
+shapeY.constant = CGFloat(arc4random_uniform(UInt32(maxY)))
+```
 
 # <a name="Core"></a>Core
+<a name="Timer"></a>
 ## Timer
 ### TimeInterval
 TimeInterval - обертка над Double для временных интервалов

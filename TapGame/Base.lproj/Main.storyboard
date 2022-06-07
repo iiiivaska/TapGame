@@ -41,12 +41,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3F-e2-J0r">
                                 <rect key="frame" x="20" y="155.5" width="374" height="655.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redTriangle" translatesAutoresizingMaskIntoConstraints="NO" id="MVM-x6-cr3">
-                                        <rect key="frame" x="8" y="8" width="145" height="131"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redTriangle" translatesAutoresizingMaskIntoConstraints="NO" id="MVM-x6-cr3">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="WsL-0v-hKm"/>
+                                            <constraint firstAttribute="height" constant="80" id="mdo-8b-YfH"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="MVM-x6-cr3" firstAttribute="leading" secondItem="s3F-e2-J0r" secondAttribute="leading" id="9pK-UF-QTK"/>
+                                    <constraint firstItem="MVM-x6-cr3" firstAttribute="top" secondItem="s3F-e2-J0r" secondAttribute="top" id="RGL-w4-4e5"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Последний счет: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHc-OE-d3x">
                                 <rect key="frame" x="132.5" y="831" width="149" height="21"/>
@@ -74,8 +81,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameObject" destination="MVM-x6-cr3" id="AMQ-dC-ytv"/>
                         <outlet property="gameView" destination="s3F-e2-J0r" id="AzC-L5-4AZ"/>
                         <outlet property="scoreLabel" destination="EHc-OE-d3x" id="HAa-U7-nqe"/>
+                        <outlet property="shapeX" destination="9pK-UF-QTK" id="JXA-Sk-6aK"/>
+                        <outlet property="shapeY" destination="RGL-w4-4e5" id="leI-XT-g2Q"/>
                         <outlet property="startButton" destination="Oty-rM-U6i" id="dM1-l7-fBG"/>
                         <outlet property="stepper" destination="yCw-TN-uBP" id="uIa-1t-Bx1"/>
                         <outlet property="timeLabel" destination="CWk-9J-gp8" id="wc9-s8-SNc"/>
