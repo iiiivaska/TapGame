@@ -9,7 +9,7 @@
 
 # <a name="view"></a>View Guide
 
-## <a name="uiview"></a>UIView
+## <a name="uiview">UIView</a>
 ### Установить границы UIView
 ```swift 
 gameView.layer.borderWidth = 1 
@@ -20,7 +20,7 @@ gameView.layer.cornerRadius = 5
   <img width=300 src="MDFiles/gameViewBorder.png">
 </p>
 
-## <a name="uibutton"></a>UIButton
+## <a name="uibutton">UIButton</a>
 ### Установить заголовок UIButton
 ```swift
 startButton.setTitle("Text", for: .normal)
