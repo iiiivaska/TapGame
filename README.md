@@ -39,8 +39,8 @@ stepper.isEnabled = false // true
 
 <a name="Timer"></a>
 
-<a name="Core"></a>
-## Core
+
+# <a name="Core"></a>Core
 ## Timer
 ### TimeInterval
 TimeInterval - обертка над Double для временных интервалов
@@ -53,9 +53,9 @@ private var objectMovingTime: TimeInterval = 2
 Создание таймера
 ```swift
 gameTimer = Timer.scheduledTimer(timeInterval: 1,
-										target: self, 
-										selector: #selector(timeTick), 
-										userInfo: nil, repeats: true)
+				target: self, 
+				selector: #selector(timeTick), 
+				userInfo: nil, repeats: true)
 ```
 Вызывает функцию timeTick каждую секунду до принудительной остановки
 ```
