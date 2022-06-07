@@ -47,8 +47,9 @@ stepper.isEnabled = false // true
 ```
 
 ### Frame vs Bounds
-Frame - Внешние границы и расположение View <br>
-Bounds - Внутренние границы и расположение View
+[Различие Frame и Bounds в iOS. Frame vs Bounds in iOS.](https://vmityuklyaev.medium.com/различие-frame-и-bounds-в-ios-frame-vs-bounds-in-ios-4e5aee5ed477) <br><br>
+<b>Frame</b> - расположение и размер view с использованием системы координат родительского представления (важно для размещения представления в superview). <br>
+<b>Bounds</b> - местоположение и размер представления с использованием его собственной системы координат (важно для размещения содержимого View или subview внутри него)
 <p align="center">
   <img width=500 src="MDFiles/FrameVsBounds.png">
 </p>
