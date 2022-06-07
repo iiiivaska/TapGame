@@ -37,6 +37,9 @@ stepper.isEnabled = false // true
 ```
 
 <a name="Timer"></a>
+
+<a name="Core"></a>
+## Core
 ## Timer
 ### TimeInterval
 TimeInterval - обертка над Double для временных интервалов
