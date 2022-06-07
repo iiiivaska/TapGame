@@ -3,15 +3,13 @@
 
 ## Оглавление
 ## <a href="#view">View guide</a>
-### <a href="#UIView">UIView</a>
-### <a href="#UIButton">UIButton</a>
-### <a href="#UIStepper">UIStepper</a>
+### <a href="#uiview">UIView</a>
+### <a href="#uibutton">UIButton</a>
+### <a href="#uistepper">UIStepper</a>
 
-<a name="view"></a>
-# View Guide
+# <a name="view"></a>View Guide
 
-<a name="UIView"></a>
-## UIView
+## <a name="uiview"></a>UIView
 ### Установить границы UIView
 ```swift 
 gameView.layer.borderWidth = 1 
@@ -22,15 +20,13 @@ gameView.layer.cornerRadius = 5
   <img width=300 src="MDFiles/gameViewBorder.png">
 </p>
 
-<a name="UIButton"></a>
-## UIButton
+## <a name="uibutton"></a>UIButton
 ### Установить заголовок UIButton
 ```swift
 startButton.setTitle("Text", for: .normal)
 ```
 
-<a name="UIStepper"></a>
-## UIStepper
+## <a name="uistepper"></a>UIStepper
 ### Активировать/Деактивировать UIStepper
 ```swift
 stepper.isEnabled = false // true
