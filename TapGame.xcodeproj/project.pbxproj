@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		08A8F573285C98A200F9A24B /* GameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A8F572285C98A200F9A24B /* GameFieldView.swift */; };
+		08A8F575285CBF2E00F9A24B /* GameControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A8F574285CBF2E00F9A24B /* GameControlView.xib */; };
+		08A8F577285CC0E600F9A24B /* GameControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A8F576285CC0E600F9A24B /* GameControlView.swift */; };
 		A82F002A2847BC0000F44CE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82F00292847BC0000F44CE6 /* AppDelegate.swift */; };
 		A82F002C2847BC0000F44CE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82F002B2847BC0000F44CE6 /* SceneDelegate.swift */; };
 		A82F002E2847BC0000F44CE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82F002D2847BC0000F44CE6 /* ViewController.swift */; };
@@ -18,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		08A8F572285C98A200F9A24B /* GameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldView.swift; sourceTree = "<group>"; };
+		08A8F574285CBF2E00F9A24B /* GameControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameControlView.xib; sourceTree = "<group>"; };
+		08A8F576285CC0E600F9A24B /* GameControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControlView.swift; sourceTree = "<group>"; };
+		08A8F578285CC17F00F9A24B /* XIBLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = XIBLoad.png; path = ../../../../../var/folders/bg/wt074dvd04n6xs_fsyd811hm0000gn/T/TemporaryItems/NSIRD_screencaptureui_3VBL2s/XIBLoad.png; sourceTree = "<group>"; };
 		A82F00262847BC0000F44CE6 /* TapGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F00292847BC0000F44CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82F002B2847BC0000F44CE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,10 +72,12 @@
 				A82F002B2847BC0000F44CE6 /* SceneDelegate.swift */,
 				A82F002D2847BC0000F44CE6 /* ViewController.swift */,
 				08A8F572285C98A200F9A24B /* GameFieldView.swift */,
+				08A8F574285CBF2E00F9A24B /* GameControlView.xib */,
 				A82F002F2847BC0000F44CE6 /* Main.storyboard */,
 				A82F00322847BC0100F44CE6 /* Assets.xcassets */,
 				A82F00342847BC0100F44CE6 /* LaunchScreen.storyboard */,
 				A82F00372847BC0100F44CE6 /* Info.plist */,
+				08A8F576285CC0E600F9A24B /* GameControlView.swift */,
 			);
 			path = TapGame;
 			sourceTree = "<group>";
@@ -78,6 +85,7 @@
 		A82F003E2847C38900F44CE6 /* MDFiles */ = {
 			isa = PBXGroup;
 			children = (
+				08A8F578285CC17F00F9A24B /* XIBLoad.png */,
 				A88F5B8D284FFF790010B4FA /* FrameVsBounds.png */,
 				A82F00402847C59F00F44CE6 /* gameViewBorder.png */,
 			);
@@ -144,6 +152,7 @@
 			files = (
 				A82F00362847BC0100F44CE6 /* LaunchScreen.storyboard in Resources */,
 				A82F00332847BC0100F44CE6 /* Assets.xcassets in Resources */,
+				08A8F575285CBF2E00F9A24B /* GameControlView.xib in Resources */,
 				A82F00312847BC0000F44CE6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +167,7 @@
 				A82F002E2847BC0000F44CE6 /* ViewController.swift in Sources */,
 				A82F002A2847BC0000F44CE6 /* AppDelegate.swift in Sources */,
 				A82F002C2847BC0000F44CE6 /* SceneDelegate.swift in Sources */,
+				08A8F577285CC0E600F9A24B /* GameControlView.swift in Sources */,
 				08A8F573285C98A200F9A24B /* GameFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

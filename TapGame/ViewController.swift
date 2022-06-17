@@ -9,14 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var gameFieldView: GameFieldView!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var gameControl: GameControlView!
     
-    private var isGameActive = false
-    private var gameTimeLeft: TimeInterval = 0
     private var gameTimer: Timer?
     private var objectMovingTime: TimeInterval = 2
     private var objectTimer: Timer?
@@ -31,22 +27,22 @@ class ViewController: UIViewController {
         gameFieldView.shapeHitHandler = { [weak self] in
             self?.objectTapped()
         }
+        gameControl.startStopHandler = { [weak self] in
+            self?.startButtonTapped()
+        }
+        gameControl.gameDuration = 20
     }
 
-    @IBAction func startButtonTapped(_ sender: UIButton) {
-        if isGameActive {
+    func startButtonTapped() {
+        if gameControl.isGameActive {
             stopGame()
         } else {
             startGame()
         }
     }
     
-    @IBAction func stepperChanged(_ sender: UIStepper) {
-        updateUI()
-    }
-    
     func objectTapped() {
-        if isGameActive {
+        if gameControl.isGameActive {
             repositionImageWithTimer()
             score += 1
         }
@@ -63,13 +59,13 @@ class ViewController: UIViewController {
         gameTimer?.invalidate()
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeTick), userInfo: nil, repeats: true)
         repositionImageWithTimer()
-        gameTimeLeft = stepper.value
-        isGameActive = true
+        gameControl.gameTimeLeft = gameControl.gameDuration
+        gameControl.isGameActive = true
         updateUI()
     }
     
     private func stopGame() {
-        isGameActive = false
+        gameControl.isGameActive = false
         updateUI()
         gameTimer?.invalidate()
         objectTimer?.invalidate()
@@ -77,22 +73,15 @@ class ViewController: UIViewController {
     }
     
     private func updateUI() {
-        gameFieldView.isShapeHidden = !isGameActive
-        stepper.isEnabled = !isGameActive
-        if isGameActive {
-            startButton.setTitle("Остановить", for: .normal)
-            timeLabel.text = "Осталось \(Int(gameTimeLeft)) сек"
-        } else {
-            startButton.setTitle("Начать", for: .normal)
-            timeLabel.text = "Время \(Int(stepper.value)) сек"
-        }
+        gameFieldView.isShapeHidden = !gameControl.isGameActive
+        
     }
     
     @objc private func timeTick() {
-        if gameTimeLeft <= 0 {
+        if gameControl.gameTimeLeft <= 0 {
             stopGame()
         } else {
-            gameTimeLeft -= 1
+            gameControl.gameTimeLeft -= 1
             updateUI()
         }
     }
