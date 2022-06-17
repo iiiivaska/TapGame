@@ -7,7 +7,9 @@
 	+ [UIButton](#Uibutton)
 	+ [UIStepper](#Uistepper)
 	+ [NSLayoutConstraint (Перемещение объекта)](#NSLayoutConstraint)
-	+ [GestureRecognizer](#GestureRecognizer)
+	+ [Обработка нажатия](#GestureRecognizer)
+	+ [Рисование](#Draw)
+	+ [Annotations](#Annotations)
 2. [Core Guide](#Core)
 	+ [Timer](#Timer)
 
@@ -64,7 +66,7 @@ shapeY.constant = CGFloat(arc4random_uniform(UInt32(maxY)))
 ```
 
 <a name="GestureRecognizer"></a>
-## GestureRecognizer
+## Обработка нажатия
 ### UITapGestureRecognizer
 Накладывается на объект UIView, чтобы стал активным необходимо установить свойство UserInterfaceEnabled объект в true, вызывается как IBAction.
 ```swift
@@ -75,6 +77,49 @@ shapeY.constant = CGFloat(arc4random_uniform(UInt32(maxY)))
         }
     }
 ```
+
+### touchesEnded
+Переопределение метода в кастомном View
+```swift
+var shapeHitHandler: (() -> Void)? //Обработчик нажатия
+
+//Обрабатывает нажатие если оно произошло внутри объекта
+override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        guard let curPath = curPath else { return }
+        let hit = touches.contains(where: { touch -> Bool in
+            let touchPoint = touch.location(in: self)
+            return curPath.contains(touchPoint)
+        })
+        if hit {
+            shapeHitHandler?()
+        }
+    }
+```
+
+<a name="Draw"></a>
+## Рисование
+### Отрисовка объекта
+```swift
+let path = UIBezierPath()
+path.lineWidth = 0
+path.move(to: CGPoint(x: rect.minX, y: rect.maxY))
+path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
+path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+path.close()
+path.stroke()
+path.fill()
+return path
+```
+
+
+<a name="Annotations"></a>
+## Annotations
+### @IBDesignable
+Используется для кастомного View с целью отображения его в IB
+
+### @IBInspectable
+Используется в классе кастомного View на свойствах класса, для отображения в IB
 
 # <a name="Core"></a>Core
 <a name="Timer"></a>

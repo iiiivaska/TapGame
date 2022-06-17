@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08A8F573285C98A200F9A24B /* GameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A8F572285C98A200F9A24B /* GameFieldView.swift */; };
 		A82F002A2847BC0000F44CE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82F00292847BC0000F44CE6 /* AppDelegate.swift */; };
 		A82F002C2847BC0000F44CE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82F002B2847BC0000F44CE6 /* SceneDelegate.swift */; };
 		A82F002E2847BC0000F44CE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82F002D2847BC0000F44CE6 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08A8F572285C98A200F9A24B /* GameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldView.swift; sourceTree = "<group>"; };
 		A82F00262847BC0000F44CE6 /* TapGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F00292847BC0000F44CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82F002B2847BC0000F44CE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				A82F00292847BC0000F44CE6 /* AppDelegate.swift */,
 				A82F002B2847BC0000F44CE6 /* SceneDelegate.swift */,
 				A82F002D2847BC0000F44CE6 /* ViewController.swift */,
+				08A8F572285C98A200F9A24B /* GameFieldView.swift */,
 				A82F002F2847BC0000F44CE6 /* Main.storyboard */,
 				A82F00322847BC0100F44CE6 /* Assets.xcassets */,
 				A82F00342847BC0100F44CE6 /* LaunchScreen.storyboard */,
@@ -155,6 +158,7 @@
 				A82F002E2847BC0000F44CE6 /* ViewController.swift in Sources */,
 				A82F002A2847BC0000F44CE6 /* AppDelegate.swift in Sources */,
 				A82F002C2847BC0000F44CE6 /* SceneDelegate.swift in Sources */,
+				08A8F573285C98A200F9A24B /* GameFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

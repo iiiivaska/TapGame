@@ -11,12 +11,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var gameView: UIView!
+    @IBOutlet weak var gameFieldView: GameFieldView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
-    @IBOutlet weak var shapeX: NSLayoutConstraint!
-    @IBOutlet weak var shapeY: NSLayoutConstraint!
-    @IBOutlet weak var gameObject: UIImageView!
     
     private var isGameActive = false
     private var gameTimeLeft: TimeInterval = 0
@@ -25,13 +22,15 @@ class ViewController: UIViewController {
     private var objectTimer: Timer?
     private var score = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameView.layer.borderWidth = 1
-        gameView.layer.borderColor = UIColor.gray.cgColor
-        gameView.layer.cornerRadius = 5
+        gameFieldView.layer.borderWidth = 1
+        gameFieldView.layer.borderColor = UIColor.gray.cgColor
+        gameFieldView.layer.cornerRadius = 5
         updateUI()
+        gameFieldView.shapeHitHandler = { [weak self] in
+            self?.objectTapped()
+        }
     }
 
     @IBAction func startButtonTapped(_ sender: UIButton) {
@@ -46,7 +45,7 @@ class ViewController: UIViewController {
         updateUI()
     }
     
-    @IBAction func objectTapped(_ sender: UITapGestureRecognizer) {
+    func objectTapped() {
         if isGameActive {
             repositionImageWithTimer()
             score += 1
@@ -78,7 +77,7 @@ class ViewController: UIViewController {
     }
     
     private func updateUI() {
-        gameObject.isHidden = !isGameActive
+        gameFieldView.isShapeHidden = !isGameActive
         stepper.isEnabled = !isGameActive
         if isGameActive {
             startButton.setTitle("Остановить", for: .normal)
@@ -99,10 +98,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func moveGameObject() {
-        let maxX = gameView.bounds.maxX - gameObject.frame.width
-        let maxY = gameView.bounds.maxY - gameObject.frame.height
-        shapeX.constant = CGFloat(arc4random_uniform(UInt32(maxX)))
-        shapeY.constant = CGFloat(arc4random_uniform(UInt32(maxY)))
+        gameFieldView.randomizeShape()
     }
 }
 
