@@ -23,12 +23,15 @@ class ViewController: UIViewController {
     private var gameTimer: Timer?
     private var objectMovingTime: TimeInterval = 2
     private var objectTimer: Timer?
+    private var score = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         gameView.layer.borderWidth = 1
         gameView.layer.borderColor = UIColor.gray.cgColor
         gameView.layer.cornerRadius = 5
+        updateUI()
     }
 
     @IBAction func startButtonTapped(_ sender: UIButton) {
@@ -43,12 +46,24 @@ class ViewController: UIViewController {
         updateUI()
     }
     
-    private func startGame() {
-        gameTimer?.invalidate()
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeTick), userInfo: nil, repeats: true)
+    @IBAction func objectTapped(_ sender: UITapGestureRecognizer) {
+        if isGameActive {
+            repositionImageWithTimer()
+            score += 1
+        }
+    }
+    
+    private func repositionImageWithTimer() {
         objectTimer?.invalidate()
         objectTimer = Timer.scheduledTimer(timeInterval: objectMovingTime, target: self, selector: #selector(moveGameObject), userInfo: nil, repeats: true)
         objectTimer?.fire()
+    }
+    
+    private func startGame() {
+        score = 0
+        gameTimer?.invalidate()
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeTick), userInfo: nil, repeats: true)
+        repositionImageWithTimer()
         gameTimeLeft = stepper.value
         isGameActive = true
         updateUI()
@@ -59,9 +74,11 @@ class ViewController: UIViewController {
         updateUI()
         gameTimer?.invalidate()
         objectTimer?.invalidate()
+        scoreLabel.text = "Последний счет: \(score)"
     }
     
     private func updateUI() {
+        gameObject.isHidden = !isGameActive
         stepper.isEnabled = !isGameActive
         if isGameActive {
             startButton.setTitle("Остановить", for: .normal)

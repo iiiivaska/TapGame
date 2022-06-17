@@ -7,6 +7,7 @@
 	+ [UIButton](#Uibutton)
 	+ [UIStepper](#Uistepper)
 	+ [NSLayoutConstraint (Перемещение объекта)](#NSLayoutConstraint)
+	+ [GestureRecognizer](#GestureRecognizer)
 2. [Core Guide](#Core)
 	+ [Timer](#Timer)
 
@@ -60,6 +61,19 @@ let maxX = gameView.bounds.maxX - gameObject.frame.width
 let maxY = gameView.bounds.maxY - gameObject.frame.height
 shapeX.constant = CGFloat(arc4random_uniform(UInt32(maxX)))
 shapeY.constant = CGFloat(arc4random_uniform(UInt32(maxY)))
+```
+
+<a name="GestureRecognizer"></a>
+## GestureRecognizer
+### UITapGestureRecognizer
+Накладывается на объект UIView, чтобы стал активным необходимо установить свойство UserInterfaceEnabled объект в true, вызывается как IBAction.
+```swift
+@IBAction func objectTapped(_ sender: UITapGestureRecognizer) {
+        if isGameActive {
+            repositionImageWithTimer()
+            score += 1
+        }
+    }
 ```
 
 # <a name="Core"></a>Core

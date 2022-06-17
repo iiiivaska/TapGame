@@ -41,12 +41,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3F-e2-J0r">
                                 <rect key="frame" x="20" y="155.5" width="374" height="655.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redTriangle" translatesAutoresizingMaskIntoConstraints="NO" id="MVM-x6-cr3">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redTriangle" translatesAutoresizingMaskIntoConstraints="NO" id="MVM-x6-cr3">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="WsL-0v-hKm"/>
                                             <constraint firstAttribute="height" constant="80" id="mdo-8b-YfH"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="DnY-jn-wgP" appends="YES" id="xN2-aR-WzF"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -83,7 +87,7 @@
                     <connections>
                         <outlet property="gameObject" destination="MVM-x6-cr3" id="AMQ-dC-ytv"/>
                         <outlet property="gameView" destination="s3F-e2-J0r" id="AzC-L5-4AZ"/>
-                        <outlet property="scoreLabel" destination="EHc-OE-d3x" id="HAa-U7-nqe"/>
+                        <outlet property="scoreLabel" destination="EHc-OE-d3x" id="4R7-7R-tzS"/>
                         <outlet property="shapeX" destination="9pK-UF-QTK" id="JXA-Sk-6aK"/>
                         <outlet property="shapeY" destination="RGL-w4-4e5" id="leI-XT-g2Q"/>
                         <outlet property="startButton" destination="Oty-rM-U6i" id="dM1-l7-fBG"/>
@@ -92,6 +96,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DnY-jn-wgP">
+                    <connections>
+                        <action selector="objectTapped:" destination="BYZ-38-t0r" id="m3v-vr-YJ9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </scene>
